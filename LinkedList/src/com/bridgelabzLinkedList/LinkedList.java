@@ -27,19 +27,48 @@ public class LinkedList {
         previousNode.next = newNode;
 
     }
-
+    public void pop(){
+        if(head==null){
+            System.out.println("List is Empty and Can't be delete");
+        }
+        System.out.println("Deleting the first element");
+        head=head.next;
+    }
     public void display() {
         Node current = head;
         if (head == null) {
             System.out.println("List is Empty");
             return;
         } else {
-            System.out.println("Nodes of simple linked list:");
+
             while (current != null) {
                 System.out.println(current.data + " ");
                 current = current.next;
             }
             System.out.println();
         }
+    }
+    public void searchNode(int data){
+        Node current = head;
+        int count = 1;
+        boolean flag = false;
+        if(head == null) {
+            System.out.println("List is empty. Please add input then Search Element");
+        }
+        else {
+            while (current != null) {
+                if (current.data == data) {
+                    flag = true;
+                    break;
+                }
+                count = count + 1;
+                current = current.next;
+            }
+        }
+        if(flag)
+            System.out.println("Element "+data+ " is present in the list at the position : " + count);
+        else
+            System.out.println("Element is not present in the list");
+
     }
 }
